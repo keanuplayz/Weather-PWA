@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-    <link rel='manifest' href='/manifest.json'>
+    <link rel="stylesheet" href="lib/css/style.css">
+
     <script type="module">
         import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
 
         const el = document.createElement('pwa-update');
         document.body.appendChild(el);
     </script>
+
+    <script src="lib/modules/logger.js" type="module"></script>
+    <script src="lib/modules/main.js" type="module"></script>
+
+    <script>
+        function doRequest() {
+            const city = document.getElementById("cityField").value;
+            const url =
+                `http://api.weatherapi.com/v1/current.json?key=${window.localStorage.getItem('apiKey') || window.apiKey}&q=${city}`;
+
+            fetch(url).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                console.log(data);
+            }).catch((err) => {
+                logger(err, "error");
+            })
+        }
+
+        function getWeather() {
+            if (window.localStorage.getItem('apiKey') === null) {
+                const keyPrompt = prompt("API Key");
+                window.localStorage.setItem('apiKey', keyPrompt);
+                doRequest();
+            } else {
+                doRequest();
+            }
+        }
+    </script>
 </head>
+
 <body>
-    
+    <button id="buton">press</button>
+    <textarea name="city" id="cityField" cols="30" rows="3"></textarea>
+    <button id="weatherButton" onclick="getWeather()">get weather</button>
+    <div id="container">
+        <div id="icon"></div>
+        <div id="info"></div>
+    </div>
 </body>
+
 </html>

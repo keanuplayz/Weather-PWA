@@ -1,0 +1,26 @@
+{
+  "name": "Weather-PWA",
+  "version": "1.0.0",
+  "description": "A progressive webapp to check the weather in a specified town/city.",
+  "main": "pwabuilder-sw.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keanuplayz/Weather-PWA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/keanuplayz/Weather-PWA/issues"
+  },
+  "homepage": "https://github.com/keanuplayz/Weather-PWA#readme",
+  "devDependencies": {
+    "eslint": "^7.3.1"
+  }
+}

@@ -71,6 +71,20 @@
                     region.innerHTML = data.location.region;
                     country.innerHTML = data.location.country;
 
+                    // Weather data
+                    let temperature = document.getElementById("temperature");
+                    let condition = document.getElementById("condition");
+                    let pressure = document.getElementById("pressure");
+                    let humidity = document.getElementById("humidity");
+                    let wind = document.getElementById("wind");
+                    let time = document.getElementById("time");
+                    temperature.innerHTML = data.current.temp_c;
+                    condition.innerHTML = data.current.condition.text;
+                    pressure.innerHTML = data.current.pressure_mb + " mBar";
+                    humidity.innerHTML = data.current.humidity + "%";
+                    wind.innerHTML = data.current.wind_kph + " km/h";
+                    time.innerHTML = data.location.localtime;
+
                     // Misc
                     document.getElementById("image").innerHTML = "<img id=\"weatherImage\">"
                     let image = document.getElementById("weatherImage");
@@ -110,6 +124,26 @@
                 <td id="region">n/a</td>
                 <td id="country">n/a</td>
                 <td id="image">n/a</td>
+            </tr>
+        </table>
+    </div>
+    <div id="weatherInfo">
+        <table>
+            <tr>
+                <th>Temperature</th>
+                <th>Condition</th>
+                <th>Pressure</th>
+                <th>Humidity</th>
+                <th>Wind</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td id="temperature">n/a</td>
+                <td id="condition">n/a</td>
+                <td id="pressure">n/a</td>
+                <td id="humidity">n/a</td>
+                <td id="wind">n/a</td>
+                <td id="time">n/a</td>
             </tr>
         </table>
     </div>

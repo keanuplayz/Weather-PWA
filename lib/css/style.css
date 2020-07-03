@@ -13,7 +13,7 @@ body {
 #genericInfo {
     margin: auto;
     position: fixed;
-    left: 0;
+    left: 10px;
     top: 120px;
     bottom: 0;
 }

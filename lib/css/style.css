@@ -9,3 +9,29 @@ body {
     font-family: product-sans;
     text-align: center;
 }
+
+#genericInfo {
+    margin: auto;
+    position: fixed;
+    left: 0;
+    top: 120px;
+    bottom: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: .8rem;
+}
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}

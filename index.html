@@ -26,7 +26,49 @@
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                console.log(data);
+                if (data.error) {
+                    if (data.error.code == "1002") {
+                        alert("The API key has not been provided. Create an issue on the GitHub repo.");
+                        console.error("No API key provided.");
+                    }
+                    if (data.error.code == "1003") {
+                        alert("You need to enter a location.");
+                        console.error("The q parameter is missing. (No location provided.)");
+                    }
+                    if (data.error.code == "1005") {
+                        alert("The API request URL is invalid. Create an issue on the GitHub repo.");
+                        console.error("Invalid API request URL.");
+                    }
+                    if (data.error.code == "1006") {
+                        alert("No matching location found.");
+                        console.error("No matching location found.");
+                    }
+                    if (data.error.code == "2006") {
+                        alert("Invalid API key. Create an issue on the GitHub repo.");
+                        console.error("Invalid API key.");
+                    }
+                    if (data.error.code == "2007") {
+                        alert("API key has exceeded monthly quota.");
+                        console.error("API key quota exceeded.");
+                    }
+                    if (data.error.code == "2008") {
+                        alert("API key has been disabled.");
+                        console.error("API key disabled.");
+                    }
+                    if (data.error.code == "9999") {
+                        alert("Internal application error.");
+                        console.error("Internal application error.");
+                    }
+                } else {
+                    console.log(data);
+                    console.log(data.location.name);
+                    let name = document.getElementById("name");
+                    let region = document.getElementById("region");
+                    let country = document.getElementById("country");
+                    name.innerHTML = data.location.name;
+                    region.innerHTML = data.location.region;
+                    country.innerHTML = data.location.country;
+                }
             }).catch((err) => {
                 console.error(err, "error");
             })
@@ -48,9 +90,19 @@
     <button id="buton">press</button>
     <textarea name="city" id="cityField" cols="30" rows="3"></textarea>
     <button id="weatherButton" onclick="getWeather()">get weather</button>
-    <div id="container">
-        <div id="icon"></div>
-        <div id="info"></div>
+    <div id="genericInfo">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Region</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td id="name">n/a</td>
+                <td id="region">n/a</td>
+                <td id="country">n/a</td>
+            </tr>
+        </table>
     </div>
 </body>
 

@@ -60,14 +60,21 @@
                         console.error("Internal application error.");
                     }
                 } else {
+                    // Log the object
                     console.log(data);
-                    console.log(data.location.name);
+                    
+                    // Basic location data
                     let name = document.getElementById("name");
                     let region = document.getElementById("region");
                     let country = document.getElementById("country");
                     name.innerHTML = data.location.name;
                     region.innerHTML = data.location.region;
                     country.innerHTML = data.location.country;
+
+                    // Misc
+                    document.getElementById("image").innerHTML = "<img id=\"weatherImage\">"
+                    let image = document.getElementById("weatherImage");
+                    image.src = "https:" + data.current.condition.icon;
                 }
             }).catch((err) => {
                 console.error(err, "error");
@@ -96,11 +103,13 @@
                 <th>Name</th>
                 <th>Region</th>
                 <th>Country</th>
+                <th>Image</th>
             </tr>
             <tr>
                 <td id="name">n/a</td>
                 <td id="region">n/a</td>
                 <td id="country">n/a</td>
+                <td id="image">n/a</td>
             </tr>
         </table>
     </div>

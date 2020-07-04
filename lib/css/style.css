@@ -10,12 +10,6 @@ body {
     text-align: center;
 }
 
-/* textarea {
-    outline: none;
-    resize: none;
-    overflow: auto;
-} */
-
 textarea {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     outline: 0;
@@ -62,37 +56,4 @@ textarea {
 
 #weatherInfo {
     overflow: hidden;
-}
-
-/* #genericInfo {
-    margin: auto;
-    position: fixed;
-    left: 10px;
-    top: 210px;
-    bottom: 0;
-}
-
-#weatherInfo {
-    margin: auto;
-    position: fixed;
-    left: 10px;
-    top: 100px;
-} */
-
-table {
-    border-collapse: collapse;
-    border: 2px solid rgb(200, 200, 200);
-    letter-spacing: 1px;
-    font-family: sans-serif;
-    font-size: .8rem;
-}
-
-td,
-th {
-    border: 1px solid rgb(190, 190, 190);
-    padding: 10px;
-}
-
-td {
-    text-align: center;
 }
